@@ -1,0 +1,20 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Autofac": "4.0.0-rc3-293",
+    "Autofac.Extensions.DependencyInjection": "4.0.0-rc3-280",
+    "Futsal.Business.Entities": "1.0.0-*",
+    "Core.Common": "1.0.0-*",
+    "Core.Common.Contracts": "1.0.0-*",
+    "Futsal.Data": "1.0.0-*",
+    "Futsal.Data.Contracts": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
