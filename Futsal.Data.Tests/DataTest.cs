@@ -2,30 +2,53 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Common.Core;
+using Futsal.Business.Bootstrapper;
+using Futsal.Business.Entities;
+using Futsal.Data.Contracts;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace Futsal.Data.Tests
 {
     public class DataTest
     {
-        [Theory]
-        [InlineData(3)]
-        [InlineData(5)]
-        [InlineData(7)]
-        public void MyFirstTheory(int value)
+        public DataTest()
         {
-            Assert.True(IsOdd(value));
+            AutofacLoader.Init();
         }
 
         [Fact]
-        public void ItIsOdd()
+        public void Test_game_repo_add()
         {
-            Assert.True(IsOdd(3));
+            var unitOfWork = new UnitOfWork(new TestDbContext());
+            var gameRepo = unitOfWork.GetDataRepository<IGameRepository>();
+            gameRepo.Add(new Game
+            {
+                Name = "TestGame"
+            });
+            
+            unitOfWork.Complete();
+            var gameFromRepo = gameRepo.Get(1);
+            var game = new Game
+            {
+                Id = 1,
+                Name = "TestGame"
+            };
+
+            Assert.Equal(game.Id, gameFromRepo.Id);
+            Assert.Equal(game.Name, gameFromRepo.Name);
+
+            Assert.Equal(1,gameRepo.Get().Count);
         }
 
-        bool IsOdd(int value)
+        internal class TestDbContext : FutsalDbContext
         {
-            return value % 2 == 1;
+            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            {
+                //optionsBuilder.UseSqlite("Filename=./blog.db");
+                optionsBuilder.UseInMemoryDatabase();
+            }
         }
 
     }

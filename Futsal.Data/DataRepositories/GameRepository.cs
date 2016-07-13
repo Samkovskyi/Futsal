@@ -13,8 +13,9 @@ namespace Futsal.Data.DataRepositories
 {
     public class GameRepository: DataRepositoryBase<Game>, IGameRepository
     {
-        public GameRepository(DbContext context) : base(context)
+        public GameRepository(FutsalDbContext context) : base(context)
         {
+           
         }
     }
 }

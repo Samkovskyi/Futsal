@@ -17,6 +17,7 @@ namespace Core.Common.Data
         {
             _context = context;
         }
+
         public T Add(T entity)
         {
             return _context.Set<T>().Add(entity).Entity;
@@ -31,7 +32,6 @@ namespace Core.Common.Data
         {
             var entity = Get(id);
             _context.Entry(entity).State = EntityState.Deleted;
-
         }
 
         public T Update(T entity)

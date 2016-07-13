@@ -12,13 +12,13 @@ namespace Futsal.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DbContextBase _context;
+        private FutsalDbContext _context;
 
-        public UnitOfWork() : this(new DbContextBase())
+        public UnitOfWork() : this(new FutsalDbContext())
         {
         }
 
-        public UnitOfWork(DbContextBase context)
+        public UnitOfWork(FutsalDbContext context)
         {
             _context = context;
         }
@@ -42,7 +42,7 @@ namespace Futsal.Data
         public void Rollback()
         {
             _context.Dispose();
-            _context = new DbContextBase();
+            _context = new FutsalDbContext();
         }
     }
 }
