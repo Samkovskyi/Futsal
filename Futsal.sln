@@ -31,6 +31,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Futsal.Business.Bootstrappe
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Futsal.Data.Tests", "Futsal.Data.Tests\Futsal.Data.Tests.xproj", "{0AF44F89-FF8B-40D5-9FB8-02571C103C75}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Futsal.Business.Contracts", "Futsal.Business.Contracts\Futsal.Business.Contracts.xproj", "{93E63634-4C46-4932-841C-2D133F412D3E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Futsal.Business.Managers", "Futsal.Business.Managers\Futsal.Business.Managers.xproj", "{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,14 @@ Global
 		{0AF44F89-FF8B-40D5-9FB8-02571C103C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF44F89-FF8B-40D5-9FB8-02571C103C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF44F89-FF8B-40D5-9FB8-02571C103C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93E63634-4C46-4932-841C-2D133F412D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93E63634-4C46-4932-841C-2D133F412D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93E63634-4C46-4932-841C-2D133F412D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93E63634-4C46-4932-841C-2D133F412D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,5 +99,7 @@ Global
 		{D6741B91-E287-4765-AC9F-C631B0F235A9} = {49E5D41E-3F8A-4BFF-AB8C-B67C23363C34}
 		{F3B50864-FE43-4124-9149-0829885EC5B1} = {3550BEEB-535A-4BF9-A496-BE9490FFC2E3}
 		{0AF44F89-FF8B-40D5-9FB8-02571C103C75} = {49E5D41E-3F8A-4BFF-AB8C-B67C23363C34}
+		{93E63634-4C46-4932-841C-2D133F412D3E} = {3550BEEB-535A-4BF9-A496-BE9490FFC2E3}
+		{04AD5C70-E047-4DC7-8A13-1B95CAC09E1F} = {3550BEEB-535A-4BF9-A496-BE9490FFC2E3}
 	EndGlobalSection
 EndGlobal

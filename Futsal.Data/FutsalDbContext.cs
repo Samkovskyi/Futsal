@@ -5,26 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using Futsal.Business.Entities;
 using Futsal.Data.EntityConfigurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Futsal.Data
 {
-    public class FutsalDbContext: DbContext
+    public class FutsalDbContext: IdentityDbContext<AppUser>
     {
-        public DbSet<Game> GamesSet { get; set; }
+        public FutsalDbContext()
+        {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
 
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Game>(GameConfiguration.GetTypeBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=./blog.db");
-            //optionsBuilder.UseInMemoryDatabase();
         }
     }
 }

@@ -17,19 +17,16 @@ namespace Futsal.Tests
         {
             AutofacLoader.Init();
             Console.WriteLine("Hello");
-            var unitOfWork = new UnitOfWork(new Tests.FutsalDbContext2());
-            var gameRepo = unitOfWork.GetDataRepository<IGameRepository>();
-           gameRepo.Add(new Game
+            var unitOfWork = new UnitOfWork(new Data.FutsalDbContext());
+            var gameRepo = unitOfWork.GetDataRepository<IStadiumRepository>();
+
+            gameRepo.Add(new Stadium()
             {
-                Id = 3,
-                Name = "CoolGame"
-            });
-            gameRepo.Add(new Game
-            {
-                Name = "New Cool Game"
+                Address = "Address",
+                Name = "Name"
             });
             unitOfWork.Complete();
-            var game = gameRepo.Get(3);
+            var game = gameRepo.Get(1);
             Console.WriteLine($"Game id {game.Id}");
             Console.WriteLine($"Games count {game.Name}");
             Console.WriteLine($"Games count {gameRepo.Get().Count}");

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace Futsal.Business.Bootstrapper
 {
@@ -27,6 +28,9 @@ namespace Futsal.Business.Bootstrapper
         private static ContainerBuilder RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterType<GameRepository>().As<IGameRepository>();
+            builder.RegisterType<StadiumRepository>().As<IStadiumRepository>();
+            builder.RegisterType<TeamRepository>().As<ITeamRepository>();
+            builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
             return builder;
         }
