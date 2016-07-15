@@ -11,5 +11,7 @@ namespace Futsal.Web.Models.AccountViewModels
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public string Nick { get; set; }
     }
 }

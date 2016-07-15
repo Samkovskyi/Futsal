@@ -17,7 +17,7 @@ namespace Futsal.Data
         }
         public FutsalDbContext()
         {
-            //Database.EnsureDeleted();
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

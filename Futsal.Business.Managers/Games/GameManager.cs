@@ -20,7 +20,7 @@ namespace Futsal.Business.Managers.Games
 
             _repositoryFactory = repositoryFactory;
         }
-
+        
         public Game CreateGame()
         {
             var gameRepo = _repositoryFactory.GetDataRepository<IGameRepository>();
