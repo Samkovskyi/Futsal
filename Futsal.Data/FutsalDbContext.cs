@@ -12,9 +12,12 @@ namespace Futsal.Data
 {
     public class FutsalDbContext: IdentityDbContext<AppUser>
     {
+        public FutsalDbContext(DbContextOptions<FutsalDbContext> options) : base(options)
+        {
+        }
         public FutsalDbContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -26,11 +29,6 @@ namespace Futsal.Data
         {
             modelBuilder.Entity<Game>(GameConfiguration.GetTypeBuilder);
             base.OnModelCreating(modelBuilder);
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Filename=./blog.db");
         }
     }
 }

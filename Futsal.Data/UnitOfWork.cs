@@ -7,6 +7,7 @@ using Core.Common.Contracts;
 using Core.Common.Core;
 using Microsoft.EntityFrameworkCore;
 using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Futsal.Data
 {
@@ -14,8 +15,9 @@ namespace Futsal.Data
     {
         private FutsalDbContext _context;
 
-        public UnitOfWork() : this(new FutsalDbContext())
+        public UnitOfWork()
         {
+            //_context = ObjectBase.MSContainer.GetService<FutsalDbContext>();
         }
 
         public UnitOfWork(FutsalDbContext context)
@@ -31,7 +33,8 @@ namespace Futsal.Data
 
         public T GetDataRepository<T>() where T : class, IDataRepository
         {
-            return ObjectBase.Container.Resolve<T>(new NamedParameter("context", _context));
+            return ObjectBase.MSContainer.GetRequiredService<T>();
+            //return ObjectBase.Container.Resolve<T>(new NamedParameter("context", _context));
         }
 
         public void Complete()

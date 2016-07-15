@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Common.Contracts;
 using Core.Common.Core;
 using Futsal.Business.Bootstrapper;
 using Futsal.Business.Entities;
 using Futsal.Data.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace Futsal.Data.Tests
@@ -16,12 +18,13 @@ namespace Futsal.Data.Tests
         public DataTest()
         {
             AutofacLoader.Init();
+            MsLoader.Init<FutsalDbContext>();
         }
 
         [Fact]
         public void Test_game_repo_add()
         {
-            var unitOfWork = new UnitOfWork(new TestDbContext());
+            IUnitOfWork unitOfWork = ObjectBase.MSContainer.GetRequiredService<IUnitOfWork>();
             var gameRepo = unitOfWork.GetDataRepository<IGameRepository>();
             gameRepo.Add(new Game
             {
@@ -41,15 +44,7 @@ namespace Futsal.Data.Tests
 
             Assert.Equal(1,gameRepo.Get().Count);
         }
-
-        internal class TestDbContext : FutsalDbContext
-        {
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                //optionsBuilder.UseSqlite("Filename=./blog.db");
-                optionsBuilder.UseInMemoryDatabase();
-            }
-        }
+       
 
     }
 }

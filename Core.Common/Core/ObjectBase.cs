@@ -10,5 +10,6 @@ namespace Core.Common.Core
     public abstract class ObjectBase
     {
         public static IContainer Container { get; set; }
+        public static IServiceProvider MSContainer { get; set; }
     }
 }
