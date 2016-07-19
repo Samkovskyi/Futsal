@@ -2,6 +2,7 @@
 using Core.Common.Contracts;
 using Core.Common.Core;
 using Futsal.Business.Bootstrapper;
+using Futsal.Business.Entities;
 using Futsal.Business.Managers.Games;
 using Futsal.Data;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +24,6 @@ namespace Futsal.Manager.Tests
             var manager = new GameManager(unitOfWork);
             manager.CreateGame();
             var cnt = manager.GetAllGames().Count();
-
             Assert.Equal(1, cnt);
         }
     }

@@ -42,7 +42,7 @@ namespace Core.Common.Data
 
         public IEnumerable<T> Get(Func<T, bool> filter)
         {
-            return _context.Set<T>().Where(filter);
+            return _context.Set<T>().Where(filter).ToList();
         }
 
         public List<T> Get()
@@ -52,7 +52,14 @@ namespace Core.Common.Data
 
         public T Get(long id)
         {
-            return _context.Set<T>().Find(id);
+            try
+            {
+                return _context.Set<T>().Find(id);
+            }
+            catch (NullReferenceException ex)
+            {
+                return null;
+            }
         }
     }
 }
