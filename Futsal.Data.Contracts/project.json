@@ -5,7 +5,7 @@
     "Core.Common": "1.0.0-*",
     "Core.Common.Contracts": "1.0.0-*",
     "Futsal.Business.Entities": "1.0.0-*",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.1"
   },
 
   "frameworks": {

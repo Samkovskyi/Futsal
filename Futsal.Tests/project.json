@@ -5,8 +5,8 @@
   },
 
   "dependencies": {
-    "NETStandard.Library": "1.6.0",
-    "Microsoft.EntityFrameworkCore.Design": "1.0.0-preview2-final",
+    "NETStandard.Library": "1.6.1",
+    "Microsoft.EntityFrameworkCore.Design": "1.1.0",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.0"
